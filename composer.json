@@ -1,0 +1,35 @@
+{
+    "name": "makscraft/mv-framework",
+    "description": "MV - content management framework for developing internet sites and applications",
+    "type": "project",
+    "keywords": ["php", "framework", "mvc", "adminpanel", "crud"],
+    "homepage": "https://mv-framework.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Maksim Zaikov"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+        	"models/",
+		"plugins/"
+        ]
+    },
+    "scripts": {
+        "post-create-project-cmd": "\\Installation::finish",
+        "post-autoload-dump": "\\Installation::postAutoloadDump",
+        "post-update-cmd": "\\Installation::postUpdate",
+        "mv:database": "\\Installation::commandConfigureDatabase",
+        "mv:migrations": "\\Installation::commandMigrations",
+        "mv:region": "\\Installation::commandRegion",
+        "mv:service": "\\Installation::commandService",
+        "mv:cleanup": "\\Installation::commandCleanup"
+    },
+    "require": {
+        "php": ">=8.0",
+        "makscraft/mv-core": "^3"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

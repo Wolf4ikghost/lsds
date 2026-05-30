@@ -1,0 +1,202 @@
+:root
+	{
+		--dark_thems_frbody: #1b1b1c;
+		--thems_frbody: #2828c2;
+	}
+.body
+	{
+		background-color: var(--thems_frbody);
+		display: flex;
+		justify-content: center;
+		background-color: var(--dark_thems_frbody);
+	}
+	#tb,table
+	{
+		padding:0 auto;
+		font-size: 13px;
+ 		grid-area: tablichka;
+	}
+	.wrap
+	{
+		height: 14.3rem;
+		position: relative;
+		display: grid;
+		grid-template-columns: repeat(2,1fr);
+        grid-template-rows: auto auto 1fr;
+		grid-template-areas: 
+			"inputss inputss"
+			"btsss btsss"
+			"tablichka tablichka";
+		gap:5px;
+		width: 40rem;
+		padding: 0.7rem;
+		background-color: var(--dark_thems_frbody);
+		margin-top: 10.5rem;	
+		border:2px solid #ccc;
+		margin: 10.5rem auto 0;/*auto по бокам центрирует контейнер */
+		border-radius: 1rem;	
+		padding-left: 9rem;/* Ширина sidebar + отступ */
+	}
+
+	
+	:root
+	{
+		--brd_nnn:none;
+		--size_text:0.7rem;
+		--border_styles:2px solid #ccc;;
+		--padding:0.5rem;
+		--width_k: 10rem;
+		--font-family: Arial Black;
+		--border-radius: 9px;
+		--border-top-left-radiis:0.9rem;
+		--border-bot-left-radiis:0.9rem;
+	}
+	#txtx
+	{
+    	border-radius: var(--border-radius);
+    	border:none;
+    	padding: var(--padding);
+    	width: var(--width_k);
+    	transition: all 0.3s ease;
+	}
+
+	#txtx:focus 
+	{
+    	border: 2px solid #FF8630;
+    	background-color: rgb(255 134 48 / 0.1);
+    	outline: none;
+	}
+	#vremya
+	{
+		border-radius: var(--border-radius);
+    	border: none;
+    	padding: var(--padding);
+    	width: var(--width_k);
+    	transition: all 0.3s ease;
+	}
+	#vremya:focus 
+	{
+		border: 2px solid #FF8630;
+    	background-color: rgb(255 134 48 / 0.1);
+    	outline: none;
+	}
+	#inputss
+	{
+		display: flex;
+		gap:10px;
+		justify-content: center;
+	}
+	#bts_add,
+	#bts_del,
+	#bts_filtr
+	{	
+		font-size: var(--size_text);
+		border:var(--brd_nnn);
+		width: var(--width_k);
+		font-family: var(--font-family);
+		border-radius: var(--border-radius);
+		padding: var(--padding);
+		cursor: pointer;
+		color: white;
+		background-color: #2c2c2e;
+	}
+	:where(#bts_add,#bts_del,#bts_filtr):focus
+	{
+		outline: 1px solid #ffffff;
+  		outline-offset: 3px;
+	}
+	th,td
+	{
+		border: 1px solid #ddd; /* Границы ячеек */
+		text-align: center;
+	}
+	:where(.wrap,)
+	{
+		background-color: #1b1b1c;
+		font-family: Arial Black;
+		font-size: 14px;
+	}
+	:is(.sidebar)
+	{
+		border-top-left-radius: var(--border-top-left-radiis);
+		border-bottom-left-radius: var(--border-bot-left-radiis);
+	}
+	.sidebar
+	{
+		position: absolute;
+        height: 14rem;
+        width: 6rem;
+        background: #333;
+        color: white;
+        padding: 1rem;
+	}
+	:is(#H1,#txt_format)
+	{
+		padding-bottom: 1rem;
+		text-align: center;
+		color: #ccc;
+		font-family: Arial Black;
+		font-size: 0.7rem;
+	}
+	.wr_information
+	 {
+		position: fixed;
+		z-index: 20;
+    	display: flex;
+    	align-items: center;        /* центрируем по вертикали */
+    	justify-content: center;    /* центрируем по горизонтали */
+    	flex-wrap: wrap;            /* разрешаем перенос содержимого */
+    	width: 16.3rem;
+		margin-left: 12rem;             /* фиксируем ширину */
+    	margin-top: -7rem;	
+    	border: 2px solid #ccc;
+    	border-radius: 1rem;
+    	box-sizing: border-box;
+    	padding: 0.5rem;
+    	text-align: center;
+		white-space: normal;	/* Перенос по пробелам */
+		overflow-wrap: anywhere;/* Разрывает связи между словами,для переноса */
+		background-color: var(--dark_thems_frbody);
+		box-shadow: -4px 5px 20px rgba(255, 255, 255, 0.3);
+
+	}
+	#close_wr_information
+	{
+		position: fixed;
+		font-size: var(--size_text);
+		border:var(--brd_nnn);
+		width: 10%;
+		font-family: var(--font-family);
+		border-radius: var(--border-radius);
+		cursor: pointer;
+		color: white;
+		background-color: #2c2c2e;
+	}
+	.wr_information.hide 
+	{
+    display: none;
+	}
+	.ul,.li1
+	{
+		cursor: pointer;
+	}
+	.sidebar ul
+	{
+		padding-left: 0.7rem;
+		list-style: none;
+		cursor: pointer;
+	}
+	.sidebar a
+	{
+		color: white;
+		text-decoration: none;
+	}
+	@media(max-width:767px)/*Для мобильных устройств */
+	{
+		.wrap
+		{
+			width: 95%;
+			margin: 1rem auto;
+			padding: 1rem;
+		}
+	}

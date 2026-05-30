@@ -1,0 +1,2 @@
+# Allowes the http access to files
+RewriteEngine off

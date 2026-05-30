@@ -1,0 +1,79 @@
+@font-face {
+    font-family: 'RobotoFlex';
+    src: url('../../adminpanel/interface/fonts/RobotoFlex.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+/* Form styles */
+form div.field-wrapper{margin-bottom: 20px;}
+form div.field-name{margin-bottom: 4px;}
+form div.field-name span.required{color: #1cb596;}
+form input[type='text'], form select, form textarea{border: 1px solid #eeeed9; border-radius: 6px; padding: 0 10px;
+background: #151d2e; width: 450px; color: #fff; font-size: 18px;}
+form input[type='text'], form select{height: 48px;}
+form select{background: #151d2e url(../images/select.svg) no-repeat right 12px center; appearance: none;
+cursor: pointer;}
+form textarea{padding: 10px; height: 200px !important;}
+form button{border: none; border-radius: 6px; cursor: pointer; font-size: 16px; background: #1cb596;
+color: #fff; padding: 15px; width: 450px;}
+form input[type='checkbox']{margin-right: 4px;}
+form label{cursor: pointer;}
+form div.buttons{padding-top: 20px;}
+form .image-input{width: 300px; padding: 10px 0; border: 1px solid transparent; border-radius: 6px;}
+form .file-params{margin-bottom: 15px;}
+form .file-params span.delete, form .multiple-files-data span.delete{margin-left: 12px; color: #1cb596; cursor: pointer;}
+form .multiple-files-data{width: 600px;}
+form .multiple-files-data div.file-element{margin-bottom: 5px;}
+form .multiple-files-data div.file-input{margin-top: 15px;}
+form .form-multi-images-wrapper{display: grid; grid-template-columns: 150px 150px 150px; gap: 15px; margin-bottom: 20px;
+width: fit-content; padding: 15px 0;}
+form .form-multi-images-wrapper > div{display: flex; flex-direction: column; align-items: center;}
+form .form-multi-images-wrapper > div > img{height: 100px; margin-bottom: 3px; max-width: 100%;}
+form .form-multi-images-wrapper span.delete{color: #1cb596; cursor: pointer;}
+form div.field-input:has(input[name='captcha']){display: flex; flex-direction: row-reverse; align-items: center;
+gap: 1%; justify-content: flex-end;}
+form div.field-input:has(input[name='captcha']) input[type='text']{width: 250px;}
+form div.field-input:has(input[name='captcha']) img{border-radius: 4px;}
+
+.error-field > *{border-color: #ff4343 !important;}
+div.form-errors, div.form-success{margin: 0 0 20px 0; padding: 10px 20px; width: 450px; border-radius: 6px;
+background: #ffffff1a;}
+div.form-errors p, div.form-success p{margin: 0 0 5px 0;}
+div.form-errors p:last-child, div.form-success p:last-child{margin: 0;}
+div.form-errors{color: #ff4343;}
+div.form-success{color: #1cb596;}
+
+
+
+@media all and (max-width: 1440px)
+{
+    header, main{margin-left: 20px; margin-right: 20px;}
+    header ul.menu{gap: 2.5%;}
+    header, main h1, main p.settings{margin-bottom: 30px;}
+}
+
+@media all and (max-width: 800px)
+{
+    main section.grid{grid-template-columns: 1fr;}
+    main section.grid > *{padding: 30px 2%;}
+    h1, h2{font-size: 30px !important; line-height: 36px !important; margin-bottom: 20px !important;}
+    main section.grid h2{border: none; margin: 0; padding-bottom: 0;}
+    main section.grid h2::before{margin-right: 10%;}
+    main h3{margin-bottom: 25px; font-size: 26px; line-height: 30px;}
+}
+
+@media all and (max-width: 640px)
+{
+    main.workshop section.item-details img{max-width: 100%;}
+}
+
+@media all and (max-width: 600px)
+{
+    body{font-size: 16px; line-height: 20px;}
+    header ul.menu{flex-direction: column; gap: 5px;}
+    form input[type='text'], form select, form textarea, form button, div.form-errors, div.form-success{
+    width: 100% !important;}
+}
