@@ -1,4 +1,5 @@
-		const input=document.getElementById('txtx');
+/*
+const input=document.getElementById('txtx');
 		const add_bts=document.getElementById('bts_add');
 		const dates=document.getElementById('vremya');
 		const del_bts=document.getElementById('bts_del');
@@ -7,12 +8,14 @@
 		{
     		return typeof value === 'string';
 		}
+*/
+		/*
 		add_bts.addEventListener('click',(e)=>
 		{
     		e.preventDefault();
     		const inputs_val = input.value.trim();
     		const date = dates.value; 
-    		if (isString(inputs_val) !== "" && date !== "")
+    		if (isEmpty(inputs_val) && isEmpty(date))
     		{
         		alert("Отлично,поля не пустые");
     		}
@@ -27,6 +30,7 @@
 		{//Функция на удаления эл-ов
 			delet(inputs_val,date);
 		});
+		
 
 		function add(pole,date)
 		{//Функция на добавления значений в таблицу
@@ -48,3 +52,4 @@
 			  tablebody.appendChild(row);
 			  localStorage.clear();
 		}
+			  */

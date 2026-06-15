@@ -11,5 +11,5 @@
  */
 
 $mvActiveModels = [
-	'Pages', 'Blocks', 'Seo'
+	'Pages', 'Blocks', 'Seo','iputss'
 ];

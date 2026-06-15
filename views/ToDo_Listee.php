@@ -16,14 +16,26 @@
 				<li class="li1">О нас</li>
 			</ul>
 		</div>
-	<?php include 'validationpole.php';?>
-		<form  method="post">
+	<?php include 'models/iputss.model.php';?>
+		<form  class="iputss" method="post" enctype ="multipart/form-data">
 			<div id='inputss'>
-				<input id='txtx' placeholder="Название задачи" maxlength="20" id="Zadacha" type="text" name="string_input" required>	
-				<input id='vremya' placeholder="Время" maxlength="20" id="DateTime" type="date" name="date_input" required>
+				<?php
+					$form = new Form('iputss');
+					$form->submit()->validate();
+					$form -> setRequiredFields(['txtx', 'registration_date']);
+					if($form -> isSubmitted() && $form -> isValid())
+						{
+							echo '<script>alert("Форма успешно отправлена!");</script>';
+						}
+					else
+						echo $form -> displayErrors();
+					echo $form->setDisplayWithErrors()->display(['txtx', 'registration_date']);
+				?>
+				<!--<input id='txtx' placeholder="Название задачи" maxlength="20" id="Zadacha" type="text" name="string_input" required>-->	
+				<!--<input id='vremya' placeholder="Время" maxlength="20" id="DateTime" type="date" name="date_input" required>-->
 			</div>	
 			<div id='btsss'>
-				<button	id="bts_add">Добавить</button>
+				<button type="submit" id="bts_add" name="action" value="add">Добавить</button>
 				<button id="bts_del">Удалить</button>
 				<button id="bts_filtr">Фильтровать по</button>
 			</div>				

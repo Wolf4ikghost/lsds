@@ -9,9 +9,9 @@
     <?php 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') 
     {
-        $name_zadachi = $_POST['string_input'];
-        $date_time = $_POST['date_input'];
-    }
+            $name_zadachi = $_POST['string_input'];
+            $date_time = $_POST['date_input'];
+        }
     ?>
 </body>
 </html>

@@ -1,11 +1,12 @@
 <?php
-class Iputss extends ModelSimple
+class iputss extends Model
 {
     protected $name = 'Поля';
 
     protected $model_elements = [
-        ['Текстовое поле', 'text', 'txtx' ,['required' => true]],
-        ['Временное поле', 'date', 'vremya', ['required' => true]],
+        ['', 'char', 'txtx' ,['required' => true]],
+        ['', 'date_time', 'registration_date', ['required' => true]]
     ];
 }
+
 ?>
