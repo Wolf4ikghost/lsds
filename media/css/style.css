@@ -12,30 +12,34 @@
 	}
 	#tb,table
 	{
-		padding:0 auto;
+		padding:0;
+		margin: 0;
 		font-size: 13px;
  		grid-area: tablichka;
+		width: 100%;
 	}
 	.wrap
 	{
-		height: 14.3rem;
+		height: auto !important;
+		min-height: 14.3rem;
 		position: relative;
 		display: grid;
 		grid-template-columns: repeat(2,1fr);
         grid-template-rows: auto auto 1fr;
+		grid-template-rows: auto auto auto;
 		grid-template-areas: 
 			"inputss inputss"
 			"btsss btsss"
 			"tablichka tablichka";
-		gap:5px;
+		gap:15px;
 		width: 40rem;
-		padding: 0.7rem;
+		padding: 1.5rem 1.5rem 1.5rem 9rem;
+		box-sizing: border-box;
 		background-color: var(--dark_thems_frbody);
 		margin-top: 10.5rem;	
 		border:2px solid #ccc;
 		margin: 10.5rem auto 0;/*auto по бокам центрирует контейнер */
 		border-radius: 1rem;	
-		padding-left: 9rem;/* Ширина sidebar + отступ */
 	}
 
 	
@@ -124,11 +128,17 @@
 	.sidebar
 	{
 		position: absolute;
-        height: 14rem;
-        width: 6rem;
-        background: #333;
-        color: white;
-        padding: 1rem;
+    	top: 0;
+    	bottom: 0;
+    	left: 0;
+    	height: auto !important; 
+    	width: 6rem;
+    	background: #333;
+    	color: white;
+    	padding: 1rem;
+		border-top-left-radius: 1rem;
+		border-bottom-left-radius: 1rem;
+    	box-sizing: border-box; 
 	}
 	:is(#H1,#txt_format)
 	{

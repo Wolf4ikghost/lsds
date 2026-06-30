@@ -17,50 +17,47 @@
 			</ul>
 		</div>
 	<?php include 'models/iputss.model.php';?>
-		<form  class="iputss" method="post" enctype ="multipart/form-data">
-			<div id='inputss'>
-				<?php
-					$form = new Form('iputss');
-					echo $form->display(['txtx', 'vr']);
-				?>
-				<!--<input id='txtx' placeholder="Название задачи" maxlength="20" id="Zadacha" type="text" name="string_input" required>-->	
-				<!--<input id='vremya' placeholder="Время" maxlength="20" id="DateTime" type="date" name="date_input" required>-->
-			</div>	
-			<div id='btsss' >
-				<button type="submit" id="bts_add" name="action" value="add">Добавить
-					
-				<?php   
-					$form->submit()->validate();
-					$form -> setRequiredFields(['txtx', 'vr']);
-					if($form -> isSubmitted() && $form -> isValid())
-						{
-							echo '<script>alert("Форма успешно отправлена!");</script>';
-						}
-					else
-						{
-							$errors = json_encode($form->displayErrors());
-    						echo "<script>console.error('Ошибки валидации:', $errors);</script>";
-						}
-				
-				
-				
-				?></button>
-				<button id="bts_del">Удалить</button>
-				<button id="bts_filtr">Фильтровать по</button>
-			</div>				
-		</form>
-		<div id='tb'>
-			<table class="table table-dark table-sm">
-				<thead>
-					<tr>
-						<th>Название задачи</th>
-						<th>Время когда нужно выполнить</th>
-					</tr>
-				</thead>
-					<tbody id="tablebody">
-					</tbody>
-			</table>
-		</div>
+		<form class="iputss" method="post" enctype="multipart/form-data">
+            
+            <?php
+                $form = new Form('iputss');
+                $form->submit()->validate();
+                $form->setRequiredFields(['txtx', 'vr']);
+
+                if($form->isSubmitted() && $form->isValid()) {
+                    echo '<script>alert("Форма успешно отправлена!");</script>';
+                } else {
+                    $errors = json_encode($form->displayErrors());
+                    echo "<script>console.error('Ошибки валидации:', $errors);</script>";
+                }
+            ?>
+            <div id='inputss' class="d-flex gap-3 mb-3">
+                <div class="w-100">
+                    <?php echo $form->display(['txtx']); ?>
+                </div>
+                <div class="w-100">
+                    <?php echo $form->display(['vr']); ?>
+                </div>
+            </div>  
+            <div id='btsss' class="d-flex flex-wrap gap-2 mb-4">
+                <button type="submit" id="bts_add" name="action" value="add" class="btn btn-primary flex-grow-1">Добавить</button>
+                <button type="button" id="bts_del" class="btn btn-danger flex-grow-1">Удалить</button>
+                <button type="button" id="bts_filtr" class="btn btn-secondary flex-grow-1">Фильтровать по</button>
+            </div>              
+        </form>
+
+        <div id='tb' class="table-responsive">
+            <table class="table table-dark table-sm m-0">
+                <thead>
+                    <tr>
+                        <th style="width">Название задачи</th>
+                        <th style="width">Время когда нужно выполнить</th>
+                    </tr>
+                </thead>
+                <tbody id="tablebody">
+                    </tbody>
+            </table>
+        </div>
 		<div class="wr_information hide">
 			<div id='close_wr_information'><button id='close_wr_information'>X</button></div>
 				<span id="H1">Информация о приложении</span>
