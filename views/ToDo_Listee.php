@@ -21,21 +21,30 @@
 			<div id='inputss'>
 				<?php
 					$form = new Form('iputss');
+					echo $form->display(['txtx', 'vr']);
+				?>
+				<!--<input id='txtx' placeholder="Название задачи" maxlength="20" id="Zadacha" type="text" name="string_input" required>-->	
+				<!--<input id='vremya' placeholder="Время" maxlength="20" id="DateTime" type="date" name="date_input" required>-->
+			</div>	
+			<div id='btsss' >
+				<button type="submit" id="bts_add" name="action" value="add">Добавить
+					
+				<?php   
 					$form->submit()->validate();
-					$form -> setRequiredFields(['txtx', 'registration_date']);
+					$form -> setRequiredFields(['txtx', 'vr']);
 					if($form -> isSubmitted() && $form -> isValid())
 						{
 							echo '<script>alert("Форма успешно отправлена!");</script>';
 						}
 					else
-						echo $form -> displayErrors();
-					echo $form->setDisplayWithErrors()->display(['txtx', 'registration_date']);
-				?>
-				<!--<input id='txtx' placeholder="Название задачи" maxlength="20" id="Zadacha" type="text" name="string_input" required>-->	
-				<!--<input id='vremya' placeholder="Время" maxlength="20" id="DateTime" type="date" name="date_input" required>-->
-			</div>	
-			<div id='btsss'>
-				<button type="submit" id="bts_add" name="action" value="add">Добавить</button>
+						{
+							$errors = json_encode($form->displayErrors());
+    						echo "<script>console.error('Ошибки валидации:', $errors);</script>";
+						}
+				
+				
+				
+				?></button>
 				<button id="bts_del">Удалить</button>
 				<button id="bts_filtr">Фильтровать по</button>
 			</div>				

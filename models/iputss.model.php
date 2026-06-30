@@ -4,8 +4,8 @@ class iputss extends Model
     protected $name = 'Поля';
 
     protected $model_elements = [
-        ['', 'char', 'txtx' ,['required' => true]],
-        ['', 'date_time', 'registration_date', ['required' => true]]
+        ['Название задачи', 'char', 'txtx' ,['required' => true]],
+        ['Время выполнения задачи', 'date', 'vr']
     ];
 }
 
