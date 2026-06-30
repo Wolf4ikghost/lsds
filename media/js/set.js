@@ -1,37 +1,15 @@
-/*
-const input=document.getElementById('txtx');
+
+		const input=document.getElementById('inputss');
 		const add_bts=document.getElementById('bts_add');
-		const dates=document.getElementById('vremya');
+		const dates=document.getElementById('txtx');
+		const dates=document.getElementById('vr');
 		const del_bts=document.getElementById('bts_del');
 		const tableBody=document.getElementById('tablebody');
-		function isString(value) 
-		{
-    		return typeof value === 'string';
-		}
-*/
-		/*
-		add_bts.addEventListener('click',(e)=>
-		{
-    		e.preventDefault();
-    		const inputs_val = input.value.trim();
-    		const date = dates.value; 
-    		if (isEmpty(inputs_val) && isEmpty(date))
-    		{
-        		alert("Отлично,поля не пустые");
-    		}
-    		else
-    		{
-        		alert("Пустые поля или неверный формат");
-        		return;
-    		}
-			add(inputs_val,date);//Обьявление аргументов до создания функции до их заполнение 
-		});
+		add(inputs_val,date);//Обьявление аргументов до создания функции до их заполнение 
 		del_bts.addEventListener('click',()=>
 		{//Функция на удаления эл-ов
 			delet(inputs_val,date);
 		});
-		
-
 		function add(pole,date)
 		{//Функция на добавления значений в таблицу
 			const save_danne_inp_text = window.localStorage.setItem('pole',`${pole}`);//Сохранение данных через localStorage
@@ -52,4 +30,3 @@ const input=document.getElementById('txtx');
 			  tablebody.appendChild(row);
 			  localStorage.clear();
 		}
-			  */

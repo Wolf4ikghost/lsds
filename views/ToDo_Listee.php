@@ -22,14 +22,17 @@
             <?php
                 $form = new Form('iputss');
                 $form->submit()->validate();
-                $form->setRequiredFields(['txtx', 'vr']);
-
-                if($form->isSubmitted() && $form->isValid()) {
-                    echo '<script>alert("Форма успешно отправлена!");</script>';
-                } else {
-                    $errors = json_encode($form->displayErrors());
-                    echo "<script>console.error('Ошибки валидации:', $errors);</script>";
-                }
+               	$txtxx =  $form->setRequiredFields(['txtx', 'vr']);
+                if($form->isSubmitted() && $form->isValid())
+					{
+                    	/*echo "<script src="media/js/set.js"></script>";*/
+						echo "<script>console.log('Всё хорошо');</script>";
+					} 
+				else
+					{
+                    	$errors = json_encode($form->displayErrors());
+                    	echo "<script>console.error('Ошибки валидации:', $errors);</script>";
+					}
             ?>
             <div id='inputss' class="d-flex gap-3 mb-3">
                 <div class="w-100">
@@ -67,7 +70,6 @@
 						Вместо скучного перечня дел — интерактивная панель управления днем с визуализацией прогресса, умными напоминаниями, основанными на его активности, и прогнозами по завершению целей.
 					</div>
 		</div>
-		<script src="media/js/set.js"></script>
 		<script src="media/js/models_window.js"></script>
 	</div>	
 </body>

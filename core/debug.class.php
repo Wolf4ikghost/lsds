@@ -317,7 +317,8 @@ class Debug
 		Registry::set('ErrorAlreadyLogged', true);
 		
 		if(Registry::get('DebugPanel') && Registry::onDevelopment() && !Http::isAjaxRequest())
-			include_once $_SERVER['DOCUMENT_ROOT'] . '/../adminpanel/controls/debug-panel.php';
+			include_once $_SERVER['DOCUMENT_ROOT'] . '/adminpanel/controls/debug-panel.php';
+			/*include_once $_SERVER['DOCUMENT_ROOT'] . '/../adminpanel/controls/debug-panel.php';*/
 
 		if($exit)
 			exit();
