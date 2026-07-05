@@ -23,7 +23,7 @@
                 $form = new Form('iputss');
                 $form->submit()->validate();
                	$txtxx =  $form->setRequiredFields(['txtx', 'vr']);
-                if($form->isSubmitted() && $form->isValid())
+                if($form->submit()-> validate(['txtx', 'vr']))
 					{
                     	/*echo "<script src="media/js/set.js"></script>";*/
 						echo "<script>console.log('Всё хорошо');</script>";
