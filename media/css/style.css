@@ -52,8 +52,8 @@
 			"btsss btsss"
 			"tablichka tablichka";
 		gap:15px;
-		width: 40rem;
-		padding: 1.75rem 1.75rem 1.75rem 9rem;
+		width: 42rem;
+		padding: 1.75rem 2rem 1.75rem 8rem;
 		box-sizing: border-box;
 		background-color: var(--surface);
 		margin: 10.5rem auto 0;/*auto по бокам центрирует контейнер */
@@ -107,11 +107,38 @@
     	box-shadow: 0 0 0 3px rgb(255 134 48 / 0.18);
     	outline: none;
 	}
+	.iputss
+	{
+		grid-column: 1 / -1;
+	}
 	#inputss
 	{
 		display: flex;
 		gap:12px;
-		justify-content: center;
+		align-items: flex-end;
+	}
+	/* Neaten framework field wrappers so inputs fill the row evenly */
+	.iputss #inputss > .w-100
+	{
+		flex: 1 1 0;
+		min-width: 0;
+	}
+	.iputss .field-wrapper
+	{
+		margin: 0;
+	}
+	.iputss .field-name
+	{
+		display: none;
+	}
+	.iputss .field-input
+	{
+		width: 100%;
+	}
+	#btsss
+	{
+		display: flex;
+		gap: 10px;
 	}
 	#bts_add,
 	#bts_del,
@@ -119,7 +146,9 @@
 	{	
 		font-size: var(--size_text);
 		border: 1px solid transparent;
-		width: var(--width_k);
+		flex: 1 1 0;
+		width: auto;
+		min-width: 6rem;
 		font-family: var(--font-ui);
 		font-weight: 600;
 		letter-spacing: 0.2px;
