@@ -23,6 +23,8 @@
                 $form = new Form('iputss');
                 $form->submit()->validate();
                	$txtxx =  $form->setRequiredFields(['txtx', 'vr']);
+                $form->setPlaceholder('txtx', 'Название задачи');
+                $form->setPlaceholder('vr', 'Дата (ГГГГ-ММ-ДД)');
                 if($form->submit()-> validate(['txtx', 'vr']))
 					{
                     	/*echo "<script src="media/js/set.js"></script>";*/
