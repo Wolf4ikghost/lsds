@@ -62,7 +62,7 @@
             </table>
         </div>
 		<div class="wr_information hide">
-			<div id='close_wr_information'><button id='close_wr_information'>X</button></div>
+			<button id='close_wr_information' type="button" aria-label="Закрыть">&times;</button>
 				<span id="H1">Информация о приложении</span>
 					<div id="txt_format">Сейчас наш продукт — это надежный цифровой блокнот. Но мы создаем не просто блокнот, мы создаем личного продуктивного ассистента будущего!
 						Представьте:
