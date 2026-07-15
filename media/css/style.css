@@ -2,13 +2,33 @@
 	{
 		--dark_thems_frbody: #1b1b1c;
 		--thems_frbody: #2828c2;
+
+		/* Surfaces and lines */
+		--surface: #202022;
+		--surface_soft: #2a2a2d;
+		--surface_hover: #313134;
+		--line: #3a3a3f;
+		--line_soft: #2f2f33;
+
+		/* Text */
+		--text: #f2f2f3;
+		--text_muted: #a7a7ad;
+
+		/* Accents */
+		--accent: #ff8630;
+		--accent_soft: rgb(255 134 48 / 0.14);
+		--danger: #e5484d;
+
+		--font-ui: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 	}
 .body
 	{
-		background-color: var(--thems_frbody);
 		display: flex;
 		justify-content: center;
 		background-color: var(--dark_thems_frbody);
+		color: var(--text);
+		font-family: var(--font-ui);
+		-webkit-font-smoothing: antialiased;
 	}
 	#tb,table
 	{
@@ -33,61 +53,64 @@
 			"tablichka tablichka";
 		gap:15px;
 		width: 40rem;
-		padding: 1.5rem 1.5rem 1.5rem 9rem;
+		padding: 1.75rem 1.75rem 1.75rem 9rem;
 		box-sizing: border-box;
-		background-color: var(--dark_thems_frbody);
-		margin-top: 10.5rem;	
-		border:2px solid #ccc;
+		background-color: var(--surface);
 		margin: 10.5rem auto 0;/*auto по бокам центрирует контейнер */
-		border-radius: 1rem;	
+		border:1px solid var(--line);
+		border-radius: 1rem;
+		box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
 	}
 
 	
 	:root
 	{
 		--brd_nnn:none;
-		--size_text:0.7rem;
-		--border_styles:2px solid #ccc;;
-		--padding:0.5rem;
+		--size_text:0.75rem;
+		--border_styles:1px solid var(--line);
+		--padding:0.6rem 0.75rem;
 		--width_k: 10rem;
-		--font-family: Arial Black;
-		--border-radius: 9px;
+		--font-family: var(--font-ui);
+		--border-radius: 10px;
 		--border-top-left-radiis:0.9rem;
 		--border-bot-left-radiis:0.9rem;
 	}
-	#txtx
-	{
-    	border-radius: var(--border-radius);
-    	border:none;
-    	padding: var(--padding);
-    	width: var(--width_k);
-    	transition: all 0.3s ease;
-	}
-
-	#txtx:focus 
-	{
-    	border: 2px solid #FF8630;
-    	background-color: rgb(255 134 48 / 0.1);
-    	outline: none;
-	}
+	/* Task inputs (text + date field) */
+	.iputss .form-text-input,
+	#txtx,
 	#vremya
 	{
-		border-radius: var(--border-radius);
-    	border: none;
+    	border-radius: var(--border-radius);
+    	border: 1px solid var(--line);
     	padding: var(--padding);
-    	width: var(--width_k);
-    	transition: all 0.3s ease;
+    	width: 100%;
+    	background-color: var(--surface_soft);
+    	color: var(--text);
+    	font-family: var(--font-ui);
+    	font-size: 0.9rem;
+    	transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 	}
-	#vremya:focus 
+	.iputss .form-text-input::placeholder
 	{
-		border: 2px solid #FF8630;
-    	background-color: rgb(255 134 48 / 0.1);
+		color: var(--text_muted);
+	}
+	.iputss .form-text-input:hover
+	{
+		border-color: #4a4a50;
+	}
+	.iputss .form-text-input:focus,
+	#txtx:focus,
+	#vremya:focus
+	{
+    	border: 1px solid var(--accent);
+    	background-color: var(--accent_soft);
+    	box-shadow: 0 0 0 3px rgb(255 134 48 / 0.18);
     	outline: none;
 	}
 	#inputss
 	{
 		display: flex;
-		gap:10px;
+		gap:12px;
 		justify-content: center;
 	}
 	#bts_add,
@@ -95,29 +118,106 @@
 	#bts_filtr
 	{	
 		font-size: var(--size_text);
-		border:var(--brd_nnn);
+		border: 1px solid transparent;
 		width: var(--width_k);
-		font-family: var(--font-family);
+		font-family: var(--font-ui);
+		font-weight: 600;
+		letter-spacing: 0.2px;
 		border-radius: var(--border-radius);
-		padding: var(--padding);
+		padding: 0.6rem 0.75rem;
 		cursor: pointer;
-		color: white;
-		background-color: #2c2c2e;
+		color: var(--text);
+		background-color: var(--surface_soft);
+		transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.05s ease, box-shadow 0.2s ease;
 	}
-	:where(#bts_add,#bts_del,#bts_filtr):focus
+	#bts_add,#bts_del,#bts_filtr
 	{
-		outline: 1px solid #ffffff;
-  		outline-offset: 3px;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+	}
+	#bts_add
+	{
+		background-color: var(--accent);
+		color: #1b1b1c;
+	}
+	#bts_add:hover
+	{
+		background-color: #ff9749;
+	}
+	#bts_del
+	{
+		background-color: transparent;
+		border-color: var(--danger);
+		color: #ff7a7d;
+	}
+	#bts_del:hover
+	{
+		background-color: rgb(229 72 77 / 0.14);
+	}
+	#bts_filtr:hover
+	{
+		background-color: var(--surface_hover);
+		border-color: var(--line);
+	}
+	:where(#bts_add,#bts_del,#bts_filtr):active
+	{
+		transform: translateY(1px);
+	}
+	:where(#bts_add,#bts_del,#bts_filtr):focus-visible
+	{
+		outline: 2px solid var(--accent);
+  		outline-offset: 2px;
+	}
+	/* Task table */
+	#tb
+	{
+		border: 1px solid var(--line);
+		border-radius: 0.75rem;
+		overflow: hidden;
+	}
+	table
+	{
+		border-collapse: collapse;
+	}
+	thead th
+	{
+		background-color: var(--surface_soft);
+		color: var(--text);
+		font-weight: 600;
+		font-size: 0.8rem;
+		letter-spacing: 0.3px;
+		padding: 0.65rem 0.75rem;
+		border-bottom: 2px solid var(--accent);
+	}
+	tbody td
+	{
+		padding: 0.6rem 0.75rem;
+		color: var(--text_muted);
 	}
 	th,td
 	{
-		border: 1px solid #ddd; /* Границы ячеек */
+		border: 1px solid var(--line_soft);
 		text-align: center;
+	}
+	tbody tr:nth-child(odd)
+	{
+		background-color: rgba(255, 255, 255, 0.02);
+	}
+	tbody tr
+	{
+		transition: background-color 0.15s ease;
+	}
+	tbody tr:hover
+	{
+		background-color: var(--surface_hover);
+	}
+	tbody tr:hover td
+	{
+		color: var(--text);
 	}
 	:where(.wrap,)
 	{
-		background-color: #1b1b1c;
-		font-family: Arial Black;
+		background-color: var(--surface);
+		font-family: var(--font-ui);
 		font-size: 14px;
 	}
 	:is(.sidebar)
@@ -133,20 +233,41 @@
     	left: 0;
     	height: auto !important;
     	width: 6rem;
-    	background: var(--dark_thems_frbody); 
-    	color: white;
+    	background: linear-gradient(180deg, #232326, #1c1c1e);
+    	color: var(--text);
     	padding: 1.5rem 1rem;
    		border-top-left-radius: 1rem;
     	border-bottom-left-radius: 1rem;
+    	border-right: 1px solid var(--line);
     	box-sizing: border-box; 
+	}
+	.li1
+	{
+		padding: 0.4rem 0.5rem;
+		border-radius: 8px;
+		font-size: 0.85rem;
+		color: var(--text_muted);
+		transition: background-color 0.2s ease, color 0.2s ease;
+	}
+	.li1:hover
+	{
+		background-color: var(--surface_hover);
+		color: var(--text);
 	}
 	:is(#H1,#txt_format)
 	{
 		padding-bottom: 1rem;
 		text-align: center;
-		color: #ccc;
-		font-family: Arial Black;
-		font-size: 0.7rem;
+		color: var(--text_muted);
+		font-family: var(--font-ui);
+		font-size: 0.75rem;
+		line-height: 1.5;
+	}
+	#H1
+	{
+		color: var(--text);
+		font-weight: 700;
+		font-size: 0.95rem;
 	}
 	.wr_information
 	 {
@@ -159,16 +280,15 @@
     	width: 16.3rem;
 		margin-left: 12rem;             /* фиксируем ширину */
     	margin-top: -7rem;	
-    	border: 2px solid #ccc;
+    	border: 1px solid var(--line);
     	border-radius: 1rem;
     	box-sizing: border-box;
-    	padding: 0.5rem;
+    	padding: 1rem;
     	text-align: center;
 		white-space: normal;	/* Перенос по пробелам */
 		overflow-wrap: anywhere;/* Разрывает связи между словами,для переноса */
-		background-color: var(--dark_thems_frbody);
-		box-shadow: -4px 5px 20px rgba(255, 255, 255, 0.3);
-
+		background-color: var(--surface);
+		box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
 	}
 	#close_wr_information
 	{
@@ -176,11 +296,11 @@
 		font-size: var(--size_text);
 		border:var(--brd_nnn);
 		width: 10%;
-		font-family: var(--font-family);
+		font-family: var(--font-ui);
 		border-radius: var(--border-radius);
 		cursor: pointer;
-		color: white;
-		background-color: #2c2c2e;
+		color: var(--text);
+		background-color: var(--surface_soft);
 	}
 	.wr_information.hide 
 	{
@@ -192,13 +312,13 @@
 	}
 	.sidebar ul
 	{
-		padding-left: 0.7rem;
+		padding-left: 0;
 		list-style: none;
 		cursor: pointer;
 	}
 	.sidebar a
 	{
-		color: white;
+		color: var(--text);
 		text-decoration: none;
 	}
 	@media(max-width:767px)/*Для мобильных устройств */
