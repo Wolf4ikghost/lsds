@@ -1,0 +1,13 @@
+Require all granted
+
+<Files captcha.php>
+	Require all denied
+</Files>
+
+<Files login-header.php>
+	Require all denied
+</Files>
+
+<Files remind-form.php>
+	Require all denied
+</Files>

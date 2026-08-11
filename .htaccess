@@ -1,0 +1,24 @@
+# General settings for Apache
+AddDefaultCharset UTF-8
+Options -Indexes
+
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Enable mod_rewrite module
+RewriteEngine on
+
+# Define the base directory for the application
+# Typically '/' on production
+# Must match the APP_FOLDER setting in the .env file
+RewriteBase /
+
+# Restrict direct access to sensitive application directories
+RewriteRule ^(config|core|models|plugins|views|log|customs|vendor)\/.* index.php [L]
+
+# Route all requests through the main front controller (index.php)
+# Exclude static files in media, extra, userfiles, and adminpanel directories
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule .* index.php [L]
