@@ -8,6 +8,9 @@
 		
 		if (Http::isAjaxRequest('post'))
 			{
+
+
+		asasssssssssssssss
 				header('Content-Type: application/json');
 				if($form->submit()-> validate(['txtx', 'vr']))
 					{
