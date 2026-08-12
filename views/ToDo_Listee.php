@@ -1,6 +1,8 @@
  <?php
+	
 	include 'models/iputss.model.php';
 	$form = new Form('iputss');
+
 	$form->submit()->validate();
 	$txtxx =  $form->setRequiredFields(['txtx', 'vr']);
 	$form->setPlaceholder('txtx', 'Название задачи');
@@ -11,6 +13,9 @@
 				header('Content-Type: application/json');
 				if($form->submit()-> validate(['txtx', 'vr']))
 					{
+						$task = $mv->iputss->getEmptyRecord();
+    					$task->setValues($form->all(['txtx', 'vr']));
+    					$id = $task->create();   // сохраняет в БД, возвращает id новой записи
 						echo json_encode
 						([
 							'success'=>true,

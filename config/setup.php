@@ -32,13 +32,13 @@ $mvSetupSettings = [
 //You can use DATABASE_ settings in .env file instead: mysql / sqlite
 'DbEngine' => '',
 //SQL mode for MySQL engine
-'DbMode' => 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION',
+'DbMode' => 'NO_ENGINE_SUBSTITUTION',
 //File of sqlite database if engine is 'sqlite' location 'userfiles/database/sqlite/'
 'DbFile' => 'database.sqlite',
-'DbHost' => '', 
-'DbUser' => '',
+'DbHost' => 'localhost', 
+'DbUser' => 'root',
 'DbPassword' => '',
-'DbName' => 'To_do_list',
+'DbName' => 'todolist',
 
 //Project server time zone in format like 'Europe/Paris'
 //List of timezones http://php.net/manual/en/timezones.php

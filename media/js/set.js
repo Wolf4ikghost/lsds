@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = await response.json();
         if (data.success) {
             add(data.task.txtx, data.task.vr);
+            alert("Все успешно добавлено");
             inputTask.value = '';
             inputDate.value = '';
         } else {
