@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputDate = document.querySelector('input[name="vr"]');
     const addBtn    = document.getElementById('bts_add');
     const delBtn    = document.getElementById('bts_del');
+    const filters_btn = document.getElementById('bts_filtr');
     const tableBody = document.getElementById('tablebody');
 
 
@@ -29,13 +30,35 @@ document.addEventListener('DOMContentLoaded', () => {
         saveTasks(tasks);
         renderRow(task, date);
     }
-
+    // Функция-помощник для превращения строки "19/02/2024" или "2024-02-19" в валидную Date
+    function parseMyDate(dateString) {
+        if (dateString.includes('/')) {
+            // Делим строку "19/02/2024" по слэшу
+            const [day, month, year] = dateString.split('/');
+            // Создаем дату в стандартном формате YYYY-MM-DD
+            return new Date(`${year}-${month}-${day}`);
+    }
+    // Если дата уже была в формате YYYY-MM-DD
+    return new Date(dateString);
+}
+    function filters(task,data) {
+        const task_filter = loadTasks();
+        tableBody.innerHTML  = '';
+        const filterss = task_filter.sort((first,second)=>{
+           const fs = parseMyDate(first.date);
+            const sec = parseMyDate(second.date);
+            const res = sec - fs;
+            return res;
+        });
+        filterss.forEach(element => {
+            const render = renderRow(element.task, element.date);
+        });
+    }
     /*
         Ниже добавление взял из нейронки
 
     */
-
-   addBtn.addEventListener('click', async (e) => {
+    addBtn.addEventListener('click', async (e) => {
     e.preventDefault(); // не даём браузеру перезагрузить страницу — сами отправим запрос
 
     const taskValue = inputTask ? inputTask.value.trim() : '';
@@ -65,9 +88,11 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Ошибка запроса', err);
     }
 });
-
-
-
+    filters_btn.addEventListener('click',(e)=>
+        {
+            e.preventDefault();
+            filters();
+        });
 
     delBtn.addEventListener('click', () => {
         localStorage.removeItem(STORAGE_KEY);
